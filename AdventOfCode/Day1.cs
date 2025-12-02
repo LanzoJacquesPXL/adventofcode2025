@@ -98,34 +98,5 @@
             Console.WriteLine("Amount of times value reached zero: " + zeroAmount);
 
         }
-
-        public static void Challenge2Alternate()
-        {
-            int value = 50;
-
-            string filePath = "C:\\Users\\12304002\\adventDay1.txt";
-            using StreamReader reader = File.OpenText(filePath);
-
-            string line = reader.ReadLine();
-            while (line != null)
-            {
-                string direction = line.Substring(0, 1);
-                int amount = int.Parse(line.Substring(1));
-
-                if (direction.Equals("R"))
-                {
-                    value += amount;
-                }
-                else
-                {
-                    int remaining = amount % 100;
-                    value += amount - remaining + (value - remaining) % 100;
-                }
-
-                line = reader.ReadLine();
-
-            }
-            Console.WriteLine(value / 100);
-        }
     }
 }
